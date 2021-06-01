@@ -14,6 +14,8 @@ public class HomePage extends TestBase {
 	@FindBy(css=".top-menu-table a[href='profile_edit.php']")
 	WebElement link_profile;	
 	
+	@FindBy(id= "user")
+	WebElement user_drop_down;
 	
 	@FindBy(xpath="//div[@class='user-details']")
 	WebElement userDetails;
@@ -27,7 +29,12 @@ public class HomePage extends TestBase {
 		return driver.getTitle();
 	}
 	
+	public boolean userDropdownDisplayed() {
+		return user_drop_down.isDisplayed();
+	}
+	
 	public String getLoggedInUserName(){
+		System.out.println("�ser details : " + userDetails.getText());
 		return userDetails.getText();
 	}
 	
